@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifire – National Digital Identity | Verifier Portal</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="ph-fill ph-shield-check"></i>
+                    <div class="logo-text">
+                        <h1>Verifire</h1>
+                        <span>NATIONAL IDENTITY</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="nav-center">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Identity</a>
+                <a href="#" class="nav-link">Documents</a>
+                <a href="#" class="nav-link">Security</a>
+            </nav>
+
+            <div class="nav-right">
+                <button class="icon-btn" aria-label="Notifications">
+                    <i class="ph ph-bell"></i>
+                </button>
+                <button class="icon-btn" aria-label="Settings">
+                    <i class="ph ph-gear"></i>
+                </button>
+                <div class="profile-section">
+                    <div class="profile-info">
+                        <span class="profile-name">Tanmoy</span>
+                        <span class="profile-role">SERVICE PROVIDER</span>
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Tanmoy&background=0F172A&color=fff&rounded=true&bold=true" alt="Tanmoy Avatar" class="profile-avatar">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">
+                Secure Identity<br>
+                <span class="highlight">Verification Portal</span>
+            </h1>
+            <p class="hero-subtitle">
+                Fast and secure identity verification for approved service providers. Real-time validation against the National Digital Identity System.
+            </p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" id="btn-start-verification">
+                    <i class="ph-bold ph-shield-check"></i>
+                    Start Verification
+                </button>
+                <button class="btn btn-secondary" id="btn-view-logs">
+                    View Logs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="dashboard-grid">
+            
+            <!-- Left Column -->
+            <div class="col-left">
+                <!-- Identity Validation Card -->
+                <div class="card validation-card" id="validation-section">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="ph ph-fingerprint"></i>
+                        </div>
+                        <div class="card-title-group">
+                            <h2>Identity Validation</h2>
+                            <p>Submit credentials for immediate cross-referencing</p>
+                        </div>
+                    </div>
+                    
+                    <form id="verification-form" class="validation-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="digital-id">DIGITAL ID / AADHAAR NUMBER</label>
+                                <div class="input-wrapper">
+                                    <i class="ph ph-identification-card"></i>
+                                    <input type="text" id="digital-id" placeholder="XXXX XXXX XXXX" maxlength="14" autocomplete="off" required>
+                                </div>
+                                <span class="error-text" id="id-error">Must be exactly 12 digits.</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="verification-method">VERIFICATION METHOD</label>
+                                <div class="input-wrapper select-wrapper">
+                                    <i class="ph ph-list-checks"></i>
+                                    <select id="verification-method" required>
+                                        <option value="OTP (Mobile/Email)">OTP (Mobile/Email)</option>
+                                        <option value="Biometric">Biometric</option>
+                                        <option value="QR Code">QR Code</option>
+                                    </select>
+                                    <i class="ph ph-caret-down select-caret"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit" id="btn-verify">
+                            <i class="ph-bold ph-arrows-clockwise" id="verify-spinner"></i>
+                            <span id="verify-text">Verify Now</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Last Verification Result Card -->
+                <div class="card result-card">
+                    <div class="card-header-flex">
+                        <h2>Last Verification Result</h2>
+                        <div class="status-badge" id="last-status-badge">
+                            <span class="status-dot"></span>
+                            <span id="last-status-text">Pending</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <span class="result-label">FULL NAME</span>
+                            <strong class="result-value" id="last-name">-</strong>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">ID NUMBER</span>
+                            <strong class="result-value" id="last-id">-</strong>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">STATUS</span>
+                            <strong class="result-value" id="last-status">-</strong>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">TIMESTAMP</span>
+                            <strong class="result-value" id="last-date">-</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-right">
+                <!-- Quick Actions -->
+                <div class="quick-actions-grid">
+                    <div class="quick-action-card hover-lift">
+                        <div class="action-icon"><i class="ph ph-user-plus"></i></div>
+                        <h3>Verify New User</h3>
+                    </div>
+                    <div class="quick-action-card hover-lift">
+                        <div class="action-icon"><i class="ph ph-clock-counter-clockwise"></i></div>
+                        <h3>Verification History</h3>
+                    </div>
+                    <div class="quick-action-card hover-lift">
+                        <div class="action-icon"><i class="ph ph-warning"></i></div>
+                        <h3>Report Issue</h3>
+                    </div>
+                    <div class="quick-action-card hover-lift">
+                        <div class="action-icon"><i class="ph ph-download-simple"></i></div>
+                        <h3>Download Report</h3>
+                    </div>
+                </div>
+
+                <!-- Support Card -->
+                <div class="card support-card">
+                    <h2>Need Support?</h2>
+                    <p>Access our specialized help center for service providers or contact a secure identity officer.</p>
+                    <button class="btn btn-support">Help Center</button>
+                    <i class="ph-fill ph-shield-check support-bg-icon"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Verification Logs Table -->
+        <div class="card logs-card" id="logs-section">
+            <div class="card-header-flex">
+                <h2>Recent Verification Logs</h2>
+                <button class="btn-text" id="btn-view-full-logs">View Full Logs <i class="ph-bold ph-arrow-right"></i></button>
+            </div>
+            
+            <div class="table-container">
+                <table class="logs-table">
+                    <thead>
+                        <tr>
+                            <th>ID NUMBER</th>
+                            <th>NAME</th>
+                            <th>METHOD</th>
+                            <th>STATUS</th>
+                            <th>DATE</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logs-body">
+                        <!-- Table rows generated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <strong>Verifire</strong>
+                <span>&copy; 2026 National Digital Identity System. All rights reserved.</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Help Center</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

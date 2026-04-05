@@ -50,8 +50,8 @@
     }
 
     .logo-icon {
-      width: 42px;
-      height: 42px;
+      width: 5vh;
+      height: 5vh;
       background: var(--navy);
       border-radius: 50%;
       display: flex;
@@ -117,7 +117,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: url("premium_photo-1749421356806-e37e3aeebeb4.avif");
+      /* background: url("premium_photo-1749421356806-e37e3aeebeb4.avif"); */
       background-size:100% 100%;
       background-repeat: no-repeat;
       padding: 52px 52px 0;
