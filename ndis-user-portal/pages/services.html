@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | National Digital Identity System</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../assets/logo.png" alt="NDIS Logo" style="width: 35px; height: auto;">
+                <div class="logo-text">
+                    <h1>National Digital Identity System</h1>
+                </div>
+            </div>
+            
+            <nav class="nav-center">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="documents.html" class="nav-link">Documents</a>
+                <a href="#" class="nav-link">Security</a>
+                <a href="help.html" class="nav-link">Help Center</a>
+            </nav>
+
+            <div class="nav-right">
+                <div class="profile-section" style="border-left: none;">
+                    <div class="avatar-circle">
+                        <i class="ph-fill ph-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Hero -->
+    <section class="services-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(5, 150, 105, 0.8)), url('../assets/images/services.jpg');">
+        <div class="hero-container">
+            <h1>Our Services</h1>
+            <p class="hero-subtitle">Access and manage your digital identity services securely and efficiently.</p>
+        </div>
+    </section>
+
+    <!-- Main Services Grid -->
+    <main class="services-main">
+        <div class="services-page-grid">
+            
+            <div class="service-card-full">
+                <div class="icon-box"><img src="../assets/icons/doc.png" alt="doc" width="30"></div>
+                <h3>Manage Documents</h3>
+                <p>Upload and manage personal documents securely in your encrypted vault.</p>
+                <button class="btn btn-primary btn-block" onclick="handleGenericService('Document Management')">Open</button>
+            </div>
+
+            <div class="service-card-full">
+                <div class="icon-box"><img src="../assets/icons/user.png" alt="user" width="30"></div>
+                <h3>Update Profile</h3>
+                <p>Edit personal details like address, contact number, and email instantly.</p>
+                <button class="btn btn-primary btn-block" onclick="handleGenericService('Profile Update')">Update</button>
+            </div>
+
+            <div class="service-card-full">
+                <div class="icon-box"><img src="../assets/icons/verify.png" alt="verify" width="30"></div>
+                <h3>Issue Digital ID</h3>
+                <p>Apply for a new digital identity or download your existing ID card.</p>
+                <button class="btn btn-primary btn-block" onclick="handleGenericService('Digital ID Issuance')">Apply</button>
+            </div>
+
+            <div class="service-card-full">
+                <div class="icon-box"><img src="../assets/icons/location.png" alt="location" width="30"></div>
+                <h3>Find Enrollment Center</h3>
+                <p>Locate the nearest authorized identity service center for biometric updates.</p>
+                <button class="btn btn-primary btn-block" onclick="handleGenericService('Center Locator')">Find</button>
+            </div>
+
+            <div class="service-card-full">
+                <div class="icon-box"><img src="../assets/icons/verify.png" alt="status" width="30"></div>
+                <h3>Check Verification Status</h3>
+                <p>Track your ID verification progress and application status in real-time.</p>
+                <button class="btn btn-primary btn-block" onclick="openModal('status-modal')">Check Status</button>
+            </div>
+
+            <div class="service-card-full">
+                <div class="icon-box"><img src="../assets/icons/report.png" alt="report" width="30"></div>
+                <h3>Report Lost ID</h3>
+                <p>Report a lost or stolen ID and request a secure reissue of your credentials.</p>
+                <button class="btn btn-primary btn-block" onclick="handleGenericService('Report Lost ID')">Report</button>
+            </div>
+
+        </div>
+
+        <!-- How It Works Section -->
+        <section class="process-section">
+            <h2 class="section-title">How It Works</h2>
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-step">1</div>
+                    <h4>Register / Login</h4>
+                    <p>Access your secure account.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">2</div>
+                    <h4>Select Service</h4>
+                    <p>Choose from the list above.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">3</div>
+                    <h4>Submit Details</h4>
+                    <p>Fill in requested info.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">4</div>
+                    <h4>Get Result</h4>
+                    <p>Instant or verified outcome.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Status Check Modal -->
+    <div id="status-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('status-modal')">&times;</span>
+            <h2>Check Verification Status</h2>
+            <p>Enter your 12-digit Digital ID to track progress.</p>
+            <div class="form-group">
+                <label for="service-status-input">Digital ID Number</label>
+                <input type="text" id="service-status-input" maxlength="12" placeholder="e.g. 123456789012">
+            </div>
+            <button class="btn btn-primary btn-block" onclick="checkServiceStatus()">Check Status</button>
+            <div id="service-status-result" class="status-check-result"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <strong>&copy; 2026 National Digital Identity System</strong>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="#">Help</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

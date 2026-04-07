@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | National Digital Identity System</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../assets/logo.png" alt="NDIS Logo" style="width: 35px; height: auto;">
+                <div class="logo-text">
+                    <h1>National Digital Identity System</h1>
+                </div>
+            </div>
+            
+            <nav class="nav-center">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="documents.html" class="nav-link">Documents</a>
+                <a href="#" class="nav-link">Security</a>
+                <a href="help.html" class="nav-link active">Help Center</a>
+            </nav>
+
+            <div class="nav-right">
+                <div class="profile-section" style="border-left: none;">
+                    <div class="avatar-circle">
+                        <i class="ph-fill ph-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Help Hero -->
+    <section class="help-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.85), rgba(5, 150, 105, 0.85)), url('../assets/images/hero1.jpg');">
+        <div class="hero-container">
+            <h1>Help Center</h1>
+            <p class="hero-subtitle">Find answers, get support, and resolve your issues بسهولة.</p>
+            <div class="search-container">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search your issue...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Help Links -->
+    <div class="quick-help">
+        <h2 class="section-subtitle" style="margin-top: 0;">Quick Help</h2>
+        <div class="quick-links-container">
+            <button class="btn btn-secondary" onclick="quickHelpAction('Login Issues')" style="color: var(--text-dark); background: white; border: 1px solid var(--border-color);">Login Issues</button>
+            <button class="btn btn-secondary" onclick="quickHelpAction('ID Verification Problems')" style="color: var(--text-dark); background: white; border: 1px solid var(--border-color);">ID Verification Problems</button>
+            <button class="btn btn-secondary" onclick="quickHelpAction('Update Request Status')" style="color: var(--text-dark); background: white; border: 1px solid var(--border-color);">Update Request Status</button>
+        </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-section" id="faq-section">
+        <h2 class="section-subtitle">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <button class="faq-question">How to create a Digital ID? <i class="ph ph-caret-down"></i></button>
+            <div class="faq-answer">To create a Digital ID, visit the Home page and click on 'Register'. You will need to provide your full name, mobile number, and upload valid identity documents.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">How to update my profile? <i class="ph ph-caret-down"></i></button>
+            <div class="faq-answer">You can update your profile by navigating to the Dashboard, clicking on the 'Edit Profile' button in the Profile Card.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">How to check verification status? <i class="ph ph-caret-down"></i></button>
+            <div class="faq-answer">Use the 'Check Application Status' tool on the Dashboard or Services page.</div>
+        </div>
+    </section>
+
+    <!-- Support Options -->
+    <div class="support-grid">
+        <div class="support-card">
+            <div class="support-icon"><img src="../assets/icons/report.png" alt="email" width="30"></div>
+            <h3>Contact Support</h3>
+            <p>support@ndis.gov</p>
+            <button class="btn btn-primary btn-block" onclick="alert('Opening email client...')">Send Email</button>
+        </div>
+        <div class="support-card">
+            <div class="support-icon"><img src="../assets/icons/verify.png" alt="phone" width="30"></div>
+            <h3>Call Support</h3>
+            <p>+91 12345 67890</p>
+            <button class="btn btn-primary btn-block" onclick="alert('Dialing support number...')">Call Now</button>
+        </div>
+        <div class="support-card">
+            <div class="support-icon"><img src="../assets/icons/location.png" alt="location" width="30"></div>
+            <h3>Visit Center</h3>
+            <p>Find nearest enrollment center</p>
+            <button class="btn btn-primary btn-block" onclick="alert('Searching for enrollment centers near you...')">Find Location</button>
+        </div>
+    </div>
+
+    <!-- Report Issue Form -->
+    <section class="report-section">
+        <div class="report-container">
+            <h2 class="section-subtitle" style="margin-top: 0;">Report an Issue</h2>
+            <form id="report-form" class="report-form">
+                <div class="form-group"><label for="report-name">Full Name</label><input type="text" id="report-name" required></div>
+                <div class="form-group"><label for="report-email">Email Address</label><input type="email" id="report-email" required></div>
+                <div class="form-group"><label for="issue-type">Issue Type</label><select id="issue-type" required><option value="login">Login Problems</option><option value="verification">Verification Issues</option></select></div>
+                <div class="form-group"><label for="report-message">Message</label><textarea id="report-message" required></textarea></div>
+                <button type="submit" class="btn btn-primary btn-block">Submit Report</button>
+            </form>
+            <div id="report-success" class="form-success"><h3>Report Submitted!</h3><p>Thank you for contacting us.</p></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <strong>&copy; 2026 National Digital Identity System</strong>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="#">Help</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

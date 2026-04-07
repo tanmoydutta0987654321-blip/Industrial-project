@@ -81,15 +81,23 @@ function addActivity(action, statusType="info", statusText="Completed") {
 
 // Render Functions
 function renderProfile() {
-    document.getElementById('header-user-name').textContent = currentUser.name.split(' ')[0];
-    document.getElementById('profile-name').textContent = currentUser.name;
-    document.getElementById('profile-id').textContent = maskId(currentUser.id);
-    document.getElementById('profile-mobile').textContent = currentUser.mobile;
-    document.getElementById('profile-address').textContent = currentUser.address;
+    const nameHeader = document.getElementById('header-user-name');
+    const nameProfile = document.getElementById('profile-name');
+    const idProfile = document.getElementById('profile-id');
+    const mobileProfile = document.getElementById('profile-mobile');
+    const addressProfile = document.getElementById('profile-address');
+
+    if (nameHeader) nameHeader.textContent = currentUser.name.split(' ')[0];
+    if (nameProfile) nameProfile.textContent = currentUser.name;
+    if (idProfile) idProfile.textContent = maskId(currentUser.id);
+    if (mobileProfile) mobileProfile.textContent = currentUser.mobile;
+    if (addressProfile) addressProfile.textContent = currentUser.address;
 }
 
 function renderHistory() {
     const tbody = document.getElementById('history-body');
+    if (!tbody) return;
+    
     tbody.innerHTML = '';
     
     if (activityHistory.length === 0) {
@@ -110,34 +118,67 @@ function renderHistory() {
 
 // Event Listeners
 
-document.getElementById('btn-view-profile').addEventListener('click', () => {
-    document.getElementById('profile-section').scrollIntoView({ behavior: 'smooth' });
-});
+const btnViewProfile = document.getElementById('btn-view-profile');
+if (btnViewProfile) {
+    btnViewProfile.addEventListener('click', () => {
+        document.getElementById('profile-section').scrollIntoView({ behavior: 'smooth' });
+    });
+}
 
-document.getElementById('btn-hero-status').addEventListener('click', () => {
-    document.getElementById('status-section').scrollIntoView({ behavior: 'smooth' });
-});
+const btnHeroStatus = document.getElementById('btn-hero-status');
+if (btnHeroStatus) {
+    btnHeroStatus.addEventListener('click', () => {
+        document.getElementById('status-section').scrollIntoView({ behavior: 'smooth' });
+    });
+}
 
-document.getElementById('nav-services').addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' });
-});
+const navAbout = document.getElementById('nav-about');
+if (navAbout) {
+    navAbout.addEventListener('click', (e) => {
+        // Only prevent default and scroll if we are on the page with the section
+        const aboutSection = document.getElementById('about-section');
+        if (aboutSection) {
+            e.preventDefault();
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
 
-document.getElementById('nav-documents').addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('docs-section').scrollIntoView({ behavior: 'smooth' });
-});
+const navServices = document.getElementById('nav-services');
+if (navServices) {
+    navServices.addEventListener('click', (e) => {
+        const servicesSection = document.getElementById('services-section');
+        if (servicesSection) {
+            e.preventDefault();
+            servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
 
-document.getElementById('btn-edit-profile').addEventListener('click', () => {
-    const newName = prompt("Enter new Full Name:", currentUser.name);
-    if(newName && newName.trim() !== '') {
-        currentUser.name = newName;
-        localStorage.setItem('ndis_user', JSON.stringify(currentUser));
-        renderProfile();
-        addActivity("Profile Update", "success", "Updated");
-        showNotification("Profile updated successfully");
-    }
-});
+const navDocuments = document.getElementById('nav-documents');
+if (navDocuments) {
+    navDocuments.addEventListener('click', (e) => {
+        const docsSection = document.getElementById('docs-section');
+        if (docsSection) {
+            e.preventDefault();
+            docsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
+
+const btnEditProfile = document.getElementById('btn-edit-profile');
+if (btnEditProfile) {
+    btnEditProfile.addEventListener('click', () => {
+        const newName = prompt("Enter new Full Name:", currentUser.name);
+        if(newName && newName.trim() !== '') {
+            currentUser.name = newName;
+            localStorage.setItem('ndis_user', JSON.stringify(currentUser));
+            renderProfile();
+            addActivity("Profile Update", "success", "Updated");
+            showNotification("Profile updated successfully");
+        }
+    });
+}
 
 // Check Status Logic
 const statusForm = document.getElementById('status-form');
@@ -191,29 +232,213 @@ statusForm.addEventListener('submit', (e) => {
     showNotification("Status checked");
 });
 
-// Global Handlers
+// --- Help Center Specific Logic ---
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close other open items
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Report Issue Form
+const reportForm = document.getElementById('report-form');
+if (reportForm) {
+    reportForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const successEl = document.getElementById('report-success');
+        reportForm.style.display = 'none';
+        successEl.style.display = 'block';
+        
+        showNotification("Issue reported successfully!");
+        addActivity("Reported Issue", "info", "Sent");
+    });
+}
+
+// Global Handlers (Existing)
 window.handleService = function(serviceName) {
     if(serviceName === 'Update Profile') {
-        document.getElementById('btn-edit-profile').click();
+        const btnEdit = document.getElementById('btn-edit-profile');
+        if (btnEdit) btnEdit.click();
     } else if(serviceName === 'Check Verification Status') {
-        document.getElementById('status-section').scrollIntoView({ behavior: 'smooth' });
-        statusInput.focus();
+        const statusSec = document.getElementById('status-section');
+        if (statusSec) {
+            statusSec.scrollIntoView({ behavior: 'smooth' });
+            if (statusInput) statusInput.focus();
+        }
     } else {
         alert(`${serviceName} functionality is currently undergoing maintenance.`);
     }
 }
 
-window.viewDocument = function(docName) {
-    alert(`Opening viewer for: ${docName}`);
-    addActivity(`Viewed Document: ${docName}`);
+// Quick Help Actions
+window.quickHelpAction = function(type) {
+    if (type === 'Login Issues') {
+        alert("Redirecting to account recovery...");
+    } else if (type === 'ID Verification Problems') {
+        const faqSection = document.getElementById('faq-section');
+        if (faqSection) faqSection.scrollIntoView({ behavior: 'smooth' });
+        else alert("Please check the FAQ section on the Help Center page.");
+    } else if (type === 'Update Request Status') {
+        window.location.href = 'index.html#status-section';
+    }
 }
 
-window.downloadDocument = function(docName) {
-    alert(`Downloading: ${docName}...`);
-    addActivity(`Downloaded Document: ${docName}`, "success", "Downloaded");
-    showNotification("Document download started");
+// --- Services Page Logic ---
+window.openModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+}
+
+window.closeModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+}
+
+window.checkServiceStatus = function() {
+    const idInput = document.getElementById('service-status-input');
+    const resultDiv = document.getElementById('service-status-result');
+    const id = idInput.value.trim();
+
+    if (id.length !== 12) {
+        alert("Please enter a valid 12-digit Digital ID.");
+        return;
+    }
+
+    resultDiv.classList.add('show');
+    resultDiv.style.display = 'block';
+
+    if (id === '123456789012') {
+        resultDiv.style.backgroundColor = 'var(--success-bg)';
+        resultDiv.style.color = 'var(--success-text)';
+        resultDiv.innerHTML = '<strong>APPROVED</strong><br>Your ID is verified and ready for use.';
+    } else if (id === '000000000000') {
+        resultDiv.style.backgroundColor = 'var(--danger-bg)';
+        resultDiv.style.color = 'var(--danger-text)';
+        resultDiv.innerHTML = '<strong>REJECTED</strong><br>Identity verification failed. Contact support.';
+    } else {
+        resultDiv.style.backgroundColor = 'var(--pending-bg)';
+        resultDiv.style.color = 'var(--pending-text)';
+        resultDiv.innerHTML = '<strong>PENDING</strong><br>Your request is currently under review.';
+    }
+    
+    addActivity(`Service Status Check (${id.slice(-4)})`, "info", "Checked");
+}
+
+window.handleGenericService = function(service) {
+    alert(`${service} Coming Soon!\nThis feature is currently being integrated into the system.`);
+}
+
+// --- Documents Page Logic ---
+window.viewDocDetails = function(name, status, date) {
+    const modal = document.getElementById('doc-view-modal');
+    document.getElementById('modal-doc-name').textContent = name;
+    document.getElementById('modal-doc-status').textContent = status;
+    document.getElementById('modal-doc-date').textContent = date;
+    
+    // Set status color
+    const statusEl = document.getElementById('modal-doc-status');
+    statusEl.className = status === 'Available' ? 'doc-status-badge available' : 'doc-status-badge missing';
+    
+    openModal('doc-view-modal');
+}
+
+window.downloadDoc = function(name) {
+    showNotification(`Downloading ${name}...`);
+    setTimeout(() => {
+        alert(`${name} download started successfully.`);
+        addActivity(`Downloaded: ${name}`, "success", "Downloaded");
+    }, 500);
+}
+
+window.triggerUpload = function(docId) {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*,application/pdf';
+    
+    input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            showNotification(`Uploading ${file.name}...`);
+            setTimeout(() => {
+                const card = document.getElementById(docId);
+                const badge = card.querySelector('.doc-status-badge');
+                
+                // Update Badge
+                badge.textContent = 'Available';
+                badge.className = 'doc-status-badge available';
+                
+                // Update Buttons
+                const footer = card.querySelector('.doc-footer-actions');
+                footer.innerHTML = `
+                    <button class="btn btn-secondary" onclick="viewDocDetails('${docId.replace('-',' ')}', 'Available', '07 Apr 2026')">View</button>
+                    <button class="btn btn-primary" onclick="downloadDoc('${docId.replace('-',' ')}')">Download</button>
+                `;
+                
+                showNotification(`${docId.replace('-',' ')} uploaded successfully!`);
+                addActivity(`Uploaded: ${docId.replace('-',' ')}`, "success", "Uploaded");
+            }, 1500);
+        }
+    };
+    
+    input.click();
+}
+
+window.filterDocs = function() {
+    const searchVal = document.getElementById('doc-search-input').value.toLowerCase();
+    const filterVal = document.getElementById('doc-filter-select').value;
+    const cards = document.querySelectorAll('.doc-card-large');
+    
+    cards.forEach(card => {
+        const name = card.querySelector('h3').textContent.toLowerCase();
+        const status = card.querySelector('.doc-status-badge').textContent;
+        
+        const matchesSearch = name.includes(searchVal);
+        const matchesFilter = filterVal === 'All' || 
+                             (filterVal === 'Available' && status === 'Available') ||
+                             (filterVal === 'Not Uploaded' && status === 'Not Uploaded');
+                             
+        if (matchesSearch && matchesFilter) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// --- Slideshow Logic ---
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function nextSlide() {
+    if (slides.length < 2) return;
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+if (slides.length > 1) {
+    setInterval(nextSlide, 5000); // Change slide every 5 seconds
 }
 
 // Init
 renderProfile();
 renderHistory();
+
+
+
