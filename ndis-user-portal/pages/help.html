@@ -22,39 +22,65 @@
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="../assets/logo.png" alt="NDIS Logo" style="width: 35px; height: auto;">
-                <div class="logo-text">
-                    <h1>National Digital Identity System</h1>
-                </div>
+                <img src="../assets/logo.jpeg" alt="NDIS Logo" style="width: 55px; height: 55px; border-radius: 50%;">
+                <span class="logo-text">National Digital Identity System</span>
             </div>
             
-            <nav class="nav-center">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About Us</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="documents.html" class="nav-link">Documents</a>
-                <a href="#" class="nav-link">Security</a>
-                <a href="help.html" class="nav-link active">Help Center</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="#">Secure Login</a>
+                <a href="#">Apply Now</a>
+                <a href="help.html" class="active">Help Center</a>
             </nav>
 
-            <div class="nav-right">
-                <div class="profile-section" style="border-left: none;">
-                    <div class="avatar-circle">
+            <div class="nav-actions">
+                <div class="profile-menu">
+                    <div class="avatar">
                         <i class="ph-fill ph-user"></i>
                     </div>
                 </div>
+                <button class="hamburger-btn icon-btn" id="hamburger-btn">
+                    <i class="ph ph-list"></i>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar" id="mobile-sidebar">
+        <div class="sidebar-header">
+            <div class="profile-menu sidebar-profile">
+                <div class="avatar">
+                    <i class="ph-fill ph-user"></i>
+                </div>
+            </div>
+            <button class="close-btn icon-btn" id="close-sidebar-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="#">Secure Login</a>
+            <a href="#">Apply Now</a>
+            <a href="help.html" class="active">Help Center</a>
+        </nav>
+    </aside>
+
     <!-- Help Hero -->
-    <section class="help-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.85), rgba(5, 150, 105, 0.85)), url('../assets/images/hero1.jpg');">
+    <section class="help-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.85), rgba(5, 150, 105, 0.85)), url('../assets/images/hero1.jpg'); padding: 6rem 1.5rem 4rem 1.5rem; text-align: center; color: white;">
         <div class="hero-container">
-            <h1>Help Center</h1>
-            <p class="hero-subtitle">Find answers, get support, and resolve your issues بسهولة.</p>
-            <div class="search-container">
-                <i class="ph ph-magnifying-glass"></i>
-                <input type="text" placeholder="Search your issue...">
+            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Help Center ⛑️</h1>
+            <p class="hero-subtitle">Find answers, get support, and resolve your issues easily. 💡</p>
+            <div class="search-container" style="max-width: 500px; margin: 2rem auto 0 auto; display: flex; align-items: center; background: white; border-radius: 8px; padding: 0.5rem 1rem;">
+                <i class="ph ph-magnifying-glass" style="color: var(--text-muted); font-size: 1.25rem;"></i>
+                <input type="text" placeholder="Search your issue..." style="border: none; outline: none; width: 100%; padding: 0.5rem; margin-left: 0.5rem;">
             </div>
         </div>
     </section>
@@ -88,15 +114,15 @@
 
     <!-- Support Options -->
     <div class="support-grid">
-        <div class="support-card">
-            <div class="support-icon"><img src="../assets/icons/report.png" alt="email" width="30"></div>
-            <h3>Contact Support</h3>
-            <p>support@ndis.gov</p>
-            <button class="btn btn-primary btn-block" onclick="alert('Opening email client...')">Send Email</button>
+        <div class="support-card" style="padding: 2.5rem; text-align: center; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: transform 0.3s; border: 1px solid var(--border-color);">
+            <div class="support-icon"><img src="../assets/icons/report.png" alt="email" width="40" style="margin-bottom: 1rem;"></div>
+            <h3 style="font-size: 1.25rem;">Contact Support 💌</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">support@ndis.gov</p>
+            <button class="btn btn-primary btn-block" style="width: 100%;" onclick="alert('Opening email client...')">Send Email</button>
         </div>
-        <div class="support-card">
-            <div class="support-icon"><img src="../assets/icons/verify.png" alt="phone" width="30"></div>
-            <h3>Call Support</h3>
+        <div class="support-card" style="padding: 2.5rem; text-align: center; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: transform 0.3s; border: 1px solid var(--border-color);">
+            <div class="support-icon"><img src="../assets/icons/verify.png" alt="phone" width="40" style="margin-bottom: 1rem;"></div>
+            <h3 style="font-size: 1.25rem;">Call Support 📞</h3>
             <p>+91 12345 67890</p>
             <button class="btn btn-primary btn-block" onclick="alert('Dialing support number...')">Call Now</button>
         </div>

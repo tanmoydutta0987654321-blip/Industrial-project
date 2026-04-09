@@ -1,78 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | National Digital Identity System</title>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
 
     <!-- Header -->
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="../assets/logo.png" alt="NDIS Logo" style="width: 35px; height: auto;">
-                <div class="logo-text">
-                    <h1>National Digital Identity System</h1>
-                </div>
+                <img src="../assets/logo.jpeg" alt="NDIS Logo" style="width: 55px; height: 55px; border-radius: 50%;">
+                <span class="logo-text">National Digital Identity System</span>
             </div>
             
-            <nav class="nav-center">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link active">About Us</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="documents.html" class="nav-link">Documents</a>
-                <a href="#" class="nav-link">Security</a>
-                <a href="help.html" class="nav-link">Help Center</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html">Home</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="#">Secure Login</a>
+                <a href="#">Apply Now</a>
+                <a href="help.html">Help Center</a>
             </nav>
 
-            <div class="nav-right">
-                <div class="profile-section" style="border-left: none;">
-                    <div class="avatar-circle">
+            <div class="nav-actions">
+                <div class="profile-menu">
+                    <div class="avatar">
                         <i class="ph-fill ph-user"></i>
                     </div>
                 </div>
+                <button class="hamburger-btn icon-btn" id="hamburger-btn">
+                    <i class="ph ph-list"></i>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar" id="mobile-sidebar">
+        <div class="sidebar-header">
+            <div class="profile-menu sidebar-profile">
+                <div class="avatar">
+                    <i class="ph-fill ph-user"></i>
+                </div>
+            </div>
+            <button class="close-btn icon-btn" id="close-sidebar-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="../index.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="#">Secure Login</a>
+            <a href="#">Apply Now</a>
+            <a href="help.html">Help Center</a>
+        </nav>
+    </aside>
+
     <!-- About Hero -->
-    <section class="hero about-hero-small" style="padding: 6rem 1.5rem 4rem 1.5rem; background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(5, 150, 105, 0.8)), url('../assets/images/about.jpg'); background-size: cover; background-position: center; color: white; text-align: center;">
+    <section class="hero about-hero-small"
+        style="padding: 6rem 1.5rem 4rem 1.5rem; background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(5, 150, 105, 0.8)), url('../assets/images/about.jpg'); background-size: cover; background-position: center; color: white; text-align: center;">
         <div class="hero-container">
-            <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 0.5rem;">About Us</h1>
-            <p class="hero-subtitle" style="margin: 0 auto;">Building a secure digital future for every citizen.</p>
+            <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 0.5rem;">About Us </h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Building a secure digital future for every citizen. 🌍</p>
         </div>
     </section>
 
     <!-- About Section Content -->
     <section class="about-section" id="about-section" style="border-top: none;">
         <div class="container">
-            <div class="about-header">
-                <h2 class="section-title">About National Digital Identity System</h2>
-                <p class="section-description">A National Digital Identity System provides every citizen with a secure and unique digital identity. It enables seamless access to government and private services while ensuring privacy, security, and transparency.</p>
+            <div class="about-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title">About National Digital Identity System ✨</h2>
+                <p class="section-description" style="max-width: 800px; margin: 0 auto;">A National Digital Identity
+                    System provides every citizen with a secure and unique digital identity. It enables seamless access
+                    to government and private services while ensuring privacy, security, and transparency. 🛡️</p>
             </div>
 
             <div class="mission-vision-grid">
-                <div class="card mission-card">
-                    <div class="card-icon"><img src="../assets/icons/verify.png" alt="verify" width="40"></div>
-                    <h3>Mission</h3>
+                <div class="card mission-card"
+                    style="padding: 2.5rem; text-align: center; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <div class="card-icon" style="margin-bottom: 1rem;"></div>
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Mission 🎯</h3>
                     <p>To provide a secure, reliable, and accessible digital identity platform for all citizens.</p>
                 </div>
-                <div class="card vision-card">
-                    <div class="card-icon"><img src="../assets/icons/user.png" alt="vision" width="40"></div>
-                    <h3>Vision</h3>
-                    <p>To build a digitally empowered nation where identity verification is fast, safe, and universally accessible.</p>
+                <div class="card vision-card"
+                    style="padding: 2.5rem; text-align: center; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <div class="card-icon" style="margin-bottom: 1rem;"></div>
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Vision 🔭</h3>
+                    <p>To build a digitally empowered nation where identity verification is fast, safe, and universally
+                        accessible.</p>
                 </div>
             </div>
         </div>
@@ -95,4 +129,5 @@
 
     <script src="../script.js"></script>
 </body>
+
 </html>

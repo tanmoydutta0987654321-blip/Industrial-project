@@ -22,36 +22,62 @@
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="../assets/logo.png" alt="NDIS Logo" style="width: 35px; height: auto;">
-                <div class="logo-text">
-                    <h1>National Digital Identity System</h1>
-                </div>
+                <img src="../assets/logo.jpeg" alt="NDIS Logo" style="width: 55px; height: 55px; border-radius: 50%;">
+                <span class="logo-text">National Digital Identity System</span>
             </div>
             
-            <nav class="nav-center">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About Us</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="documents.html" class="nav-link active">Documents</a>
-                <a href="#" class="nav-link">Security</a>
-                <a href="help.html" class="nav-link">Help Center</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="#">Secure Login</a>
+                <a href="#">Apply Now</a>
+                <a href="help.html">Help Center</a>
             </nav>
 
-            <div class="nav-right">
-                <div class="profile-section" style="border-left: none;">
-                    <div class="avatar-circle">
+            <div class="nav-actions">
+                <div class="profile-menu">
+                    <div class="avatar">
                         <i class="ph-fill ph-user"></i>
                     </div>
                 </div>
+                <button class="hamburger-btn icon-btn" id="hamburger-btn">
+                    <i class="ph ph-list"></i>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar" id="mobile-sidebar">
+        <div class="sidebar-header">
+            <div class="profile-menu sidebar-profile">
+                <div class="avatar">
+                    <i class="ph-fill ph-user"></i>
+                </div>
+            </div>
+            <button class="close-btn icon-btn" id="close-sidebar-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="#">Secure Login</a>
+            <a href="#">Apply Now</a>
+            <a href="help.html">Help Center</a>
+        </nav>
+    </aside>
+
     <!-- Documents Hero -->
-    <section class="docs-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(5, 150, 105, 0.8)), url('../assets/images/documents.jpg');">
+    <section class="docs-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(5, 150, 105, 0.8)), url('../assets/images/documents.jpg'); padding: 6rem 1.5rem 4rem 1.5rem; text-align: center; color: white;">
         <div class="hero-container">
-            <h1>My Documents</h1>
-            <p class="hero-subtitle">Manage, view, and download your digital identity documents securely.</p>
+            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">My Documents 🗂️</h1>
+            <p class="hero-subtitle">Manage, view, and download your digital identity documents securely. 🔐</p>
         </div>
     </section>
 
@@ -130,18 +156,18 @@
             </div>
         </div>
 
-        <div class="security-note">
+        <div class="security-note" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 2rem; background: #e0f2fe; padding: 1rem; border-radius: 8px;">
             <img src="../assets/icons/verify.png" alt="security" width="24">
-            <p>Your documents are securely stored and protected using advanced encryption.</p>
+            <p style="font-weight: 500; color: #0369a1; margin: 0;">Your documents are securely stored and protected using advanced encryption. 🛡️</p>
         </div>
     </main>
 
     <div id="doc-view-modal" class="modal">
-        <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-content" style="max-width: 600px; text-align: center;">
             <span class="close-modal" onclick="closeModal('doc-view-modal')">&times;</span>
-            <h2 id="modal-doc-name">Document Name</h2>
-            <div class="preview-img-placeholder">
-                <img src="../assets/icons/doc.png" alt="preview" width="60">
+            <h2 id="modal-doc-name" style="margin-bottom: 1.5rem;">Document Name 📄</h2>
+            <div class="preview-img-placeholder" style="background: #f8fafc; padding: 3rem; border: 2px dashed #cbd5e1; border-radius: 12px; display: flex; flex-direction: column; align-items: center;">
+                <img src="../assets/icons/doc.png" alt="preview" width="60" style="margin-bottom: 1rem;">
                 <span>DOCUMENT PREVIEW</span>
             </div>
             <div class="profile-details" style="margin-top: 1rem;">

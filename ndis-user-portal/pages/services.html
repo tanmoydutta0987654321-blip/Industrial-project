@@ -22,36 +22,62 @@
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="../assets/logo.png" alt="NDIS Logo" style="width: 35px; height: auto;">
-                <div class="logo-text">
-                    <h1>National Digital Identity System</h1>
-                </div>
+                <img src="../assets/logo.jpeg" alt="NDIS Logo" style="width: 55px; height: 55px; border-radius: 50%;">
+                <span class="logo-text">National Digital Identity System</span>
             </div>
             
-            <nav class="nav-center">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About Us</a>
-                <a href="services.html" class="nav-link active">Services</a>
-                <a href="documents.html" class="nav-link">Documents</a>
-                <a href="#" class="nav-link">Security</a>
-                <a href="help.html" class="nav-link">Help Center</a>
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="#">Secure Login</a>
+                <a href="#">Apply Now</a>
+                <a href="help.html">Help Center</a>
             </nav>
 
-            <div class="nav-right">
-                <div class="profile-section" style="border-left: none;">
-                    <div class="avatar-circle">
+            <div class="nav-actions">
+                <div class="profile-menu">
+                    <div class="avatar">
                         <i class="ph-fill ph-user"></i>
                     </div>
                 </div>
+                <button class="hamburger-btn icon-btn" id="hamburger-btn">
+                    <i class="ph ph-list"></i>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar" id="mobile-sidebar">
+        <div class="sidebar-header">
+            <div class="profile-menu sidebar-profile">
+                <div class="avatar">
+                    <i class="ph-fill ph-user"></i>
+                </div>
+            </div>
+            <button class="close-btn icon-btn" id="close-sidebar-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="#">Secure Login</a>
+            <a href="#">Apply Now</a>
+            <a href="help.html">Help Center</a>
+        </nav>
+    </aside>
+
     <!-- Services Hero -->
-    <section class="services-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(5, 150, 105, 0.8)), url('../assets/images/services.jpg');">
+    <section class="services-hero" style="background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(5, 150, 105, 0.8)), url('../assets/images/services.jpg'); padding: 6rem 1.5rem 4rem 1.5rem; text-align: center; color: white;">
         <div class="hero-container">
-            <h1>Our Services</h1>
-            <p class="hero-subtitle">Access and manage your digital identity services securely and efficiently.</p>
+            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Our Services 🛠️</h1>
+            <p class="hero-subtitle">Access and manage your digital identity services securely and efficiently. ⚡</p>
         </div>
     </section>
 
@@ -104,28 +130,28 @@
         </div>
 
         <!-- How It Works Section -->
-        <section class="process-section">
-            <h2 class="section-title">How It Works</h2>
+        <section class="process-section" style="margin-top: 4rem; padding: 3rem 0; background: #f8fafc; border-radius: var(--radius-lg); text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 2.5rem; font-size: 2rem;">How It Works ⚙️</h2>
             <div class="process-grid">
-                <div class="process-item">
-                    <div class="process-step">1</div>
-                    <h4>Register / Login</h4>
-                    <p>Access your secure account.</p>
+                <div class="process-item" style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <div class="process-step" style="width: 40px; height: 40px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold; font-size: 1.2rem;">1</div>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Register / Login 🔑</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Access your secure account.</p>
                 </div>
-                <div class="process-item">
-                    <div class="process-step">2</div>
-                    <h4>Select Service</h4>
-                    <p>Choose from the list above.</p>
+                <div class="process-item" style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <div class="process-step" style="width: 40px; height: 40px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold; font-size: 1.2rem;">2</div>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Select Service 🖱️</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Choose from the list above.</p>
                 </div>
-                <div class="process-item">
-                    <div class="process-step">3</div>
-                    <h4>Submit Details</h4>
-                    <p>Fill in requested info.</p>
+                <div class="process-item" style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <div class="process-step" style="width: 40px; height: 40px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold; font-size: 1.2rem;">3</div>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Submit Details 📝</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Fill in requested info.</p>
                 </div>
-                <div class="process-item">
-                    <div class="process-step">4</div>
-                    <h4>Get Result</h4>
-                    <p>Instant or verified outcome.</p>
+                <div class="process-item" style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <div class="process-step" style="width: 40px; height: 40px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold; font-size: 1.2rem;">4</div>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Get Result ✅</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Instant or verified outcome.</p>
                 </div>
             </div>
         </section>

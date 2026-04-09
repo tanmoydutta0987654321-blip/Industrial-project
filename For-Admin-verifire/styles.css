@@ -87,6 +87,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; color: var(--primary-main); }
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1;
+    font-family: aftur;
 }
 
 .logo-text span {

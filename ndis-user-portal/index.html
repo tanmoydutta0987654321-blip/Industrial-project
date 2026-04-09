@@ -1,189 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | National Digital Identity System</title>
-    
+    <title>National Digital Identity System - User Portal</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons (Phosphor Icons - standard for this project) -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body id="home">
 
+<body>
     <!-- Notifications -->
     <div id="notification-container" class="notification-container"></div>
 
-    <!-- 1. NAVBAR -->
+    <!-- 1. HEADER / NAVBAR -->
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="assets/logo.png" alt="NDIS Logo" style="width: 35px; height: auto;">
-                <div class="logo-text">
-                    <h1>National Digital Identity System</h1>
-                </div>
+                <img src="assets/logo.jpeg" alt="NDIS Logo" style="width: 55px; height: 55px; border-radius: 50%;">
+                <span class="logo-text">National Digital Identity System</span>
             </div>
             
-            <nav class="nav-center">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="pages/about.html" class="nav-link">About Us</a>
-                <a href="pages/services.html" class="nav-link">Services</a>
-                <a href="pages/documents.html" class="nav-link">Documents</a>
-                <a href="#" class="nav-link">Security</a>
-                <a href="pages/help.html" class="nav-link">Help Center</a>
+            <nav class="nav-links desktop-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="pages/about.html">About Us</a>
+                <a href="pages/services.html">Services</a>
+                <a href="#">Secure Login</a>
+                <a href="#">Apply Now</a>
+                <a href="pages/help.html">Help Center</a>
             </nav>
 
-            <div class="nav-right">
-                <div class="profile-section">
-                    <span class="profile-name" id="header-user-name">Guest</span>
-                    <div class="avatar-circle">
+            <div class="nav-actions">
+                <div class="profile-menu">
+                    <div class="avatar">
                         <i class="ph-fill ph-user"></i>
                     </div>
                 </div>
+                <button class="hamburger-btn icon-btn" id="hamburger-btn">
+                    <i class="ph ph-list"></i>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- 2. HERO SECTION (SLIDESHOW) -->
-    <section class="hero slideshow-container">
-        <div class="hero-slides">
-            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/hero1.jpg');">
-                <div class="hero-container">
-                    <h1 class="hero-title">Your Digital Identity,<br><span class="highlight">Secure & Accessible</span></h1>
-                    <p class="hero-subtitle">The foundation for a digitally empowered nation.</p>
+    <!-- Mobile Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar" id="mobile-sidebar">
+        <div class="sidebar-header">
+            <div class="profile-menu sidebar-profile">
+                <div class="avatar">
+                    <i class="ph-fill ph-user"></i>
                 </div>
             </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/hero2.jpg');">
-                <div class="hero-container">
-                    <h1 class="hero-title">Seamless Access to<br><span class="highlight">Government Services</span></h1>
-                    <p class="hero-subtitle">One ID for everything you need.</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/hero3.jpg');">
-                <div class="hero-container">
-                    <h1 class="hero-title">Your Privacy is Our<br><span class="highlight">Top Priority</span></h1>
-                    <p class="hero-subtitle">State-of-the-art encryption at every step.</p>
-                </div>
-            </div>
+            <button class="close-btn icon-btn" id="close-sidebar-btn">
+                <i class="ph ph-x"></i>
+            </button>
         </div>
-        <div class="hero-actions-wrapper">
-             <div class="hero-container">
-                <div class="hero-actions">
-                    <button class="btn btn-primary" onclick="location.href='pages/services.html'">Explore Services</button>
-                    <button class="btn btn-secondary" onclick="location.href='pages/about.html'">Learn More</button>
-                </div>
-             </div>
+        <nav class="sidebar-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="pages/about.html">About Us</a>
+            <a href="pages/services.html">Services</a>
+            <a href="#">Secure Login</a>
+            <a href="#">Apply Now</a>
+            <a href="pages/help.html">Help Center</a>
+        </nav>
+    </aside>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Digital Identity,<br>Secure & Accessible</h1>
+            <p>Manage your identity, documents, and verification status in one place.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary"
+                    onclick="document.getElementById('profile-section').scrollIntoView({behavior: 'smooth'})">View
+                    Profile</button>
+                <button class="btn btn-secondary"
+                    onclick="document.getElementById('check-status-section').scrollIntoView({behavior: 'smooth'})">Check
+                    Status</button>
+            </div>
         </div>
     </section>
 
-    <main class="main-content">
-        
-        <!-- 3. KEY SERVICES (DASHBOARD PREVIEW) -->
-        <section id="services" class="dashboard-section">
-            <h2 class="section-title">Key Services</h2>
-            <div class="dashboard-grid">
-                <!-- Left: Profile & History Recap -->
-                <div class="col-left">
-                    <div class="card profile-card">
-                        <div class="card-header">
-                            <h3>My Identity</h3>
-                        </div>
-                        <div class="profile-details">
-                            <div class="detail-row">
-                                <span class="detail-label">NAME</span>
-                                <strong id="profile-name">Loading...</strong>
+    <main class="dashboard-container">
+        <div class="grid-layout">
+            <div class="col-left">
+                <!-- 3. PROFILE CARD -->
+                <section id="profile-section" class="card profile-card">
+                    <div class="card-header">
+                        <h2>My Profile</h2>
+                        <button class="btn btn-outline" id="edit-profile-btn">Edit Profile</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="profile-info">
+                            <div class="info-group">
+                                <label>Full Name</label>
+                                <div id="display-name" class="info-value">Loading...</div>
                             </div>
-                            <div class="detail-row">
-                                <span class="detail-label">MOBILE</span>
-                                <strong id="profile-mobile">Loading...</strong>
+                            <div class="info-group">
+                                <label>Digital ID</label>
+                                <div id="display-id" class="info-value">**** **** ****</div>
+                            </div>
+                            <div class="info-group">
+                                <label>Mobile Number</label>
+                                <div id="display-mobile" class="info-value">-</div>
+                            </div>
+                            <div class="info-group">
+                                <label>Address</label>
+                                <div id="display-address" class="info-value">-</div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Right: Quick Actions with local icons -->
-                <div class="col-right">
+                <!-- 6. DOCUMENTS SECTION -->
+                <section id="documents" class="card documents-card">
+                    <div class="card-header">
+                        <h2>My Documents</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul class="document-list">
+                            <li class="doc-item">
+                                <div class="doc-info">
+                                    <i class="ph-fill ph-identification-card"></i>
+                                    <span>Aadhaar (Digital ID)</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn-text" onclick="viewDocument('Aadhaar')">View</button>
+                                    <button class="btn-text" onclick="downloadDocument('Aadhaar')">Download</button>
+                                </div>
+                            </li>
+                            <li class="doc-item">
+                                <div class="doc-info">
+                                    <i class="ph-fill ph-map-pin"></i>
+                                    <span>Address Proof</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn-text" onclick="viewDocument('Address Proof')">View</button>
+                                    <button class="btn-text"
+                                        onclick="downloadDocument('Address Proof')">Download</button>
+                                </div>
+                            </li>
+                            <li class="doc-item">
+                                <div class="doc-info">
+                                    <i class="ph-fill ph-image"></i>
+                                    <span>Photo ID</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn-text" onclick="viewDocument('Photo ID')">View</button>
+                                    <button class="btn-text" onclick="downloadDocument('Photo ID')">Download</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-right">
+                <!-- 4. SERVICES SECTION -->
+                <section id="services" class="services-section">
+                    <h2>Quick Services</h2>
                     <div class="services-grid">
-                        <div class="service-card" onclick="location.href='pages/documents.html'">
-                            <div class="service-icon"><img src="assets/icons/doc.png" alt="doc" width="24"></div>
-                            <h4>Manage Documents</h4>
+                        <div class="service-card" onclick="handleServiceClick('Update Profile')">
+                            <div class="service-icon"><i class="ph ph-user-gear"></i></div>
+                            <h3>Update Profile</h3>
                         </div>
-                        <div class="service-card" onclick="location.href='pages/services.html'">
-                            <div class="service-icon"><img src="assets/icons/verify.png" alt="verify" width="24"></div>
-                            <h4>Check Status</h4>
+                        <div class="service-card" onclick="handleServiceClick('Download ID')">
+                            <div class="service-icon"><i class="ph ph-download-simple"></i></div>
+                            <h3>Download ID</h3>
                         </div>
-                        <div class="service-card" onclick="location.href='pages/services.html'">
-                            <div class="service-icon"><img src="assets/icons/location.png" alt="location" width="24"></div>
-                            <h4>Find Center</h4>
+                        <div class="service-card" onclick="handleServiceClick('Check Verification Status')">
+                            <div class="service-icon"><i class="ph ph-check-circle"></i></div>
+                            <h3>Check Verification Status</h3>
                         </div>
-                        <div class="service-card" onclick="location.href='pages/services.html'">
-                            <div class="service-icon"><img src="assets/icons/report.png" alt="report" width="24"></div>
-                            <h4>Report Lost ID</h4>
+                        <div class="service-card" onclick="handleServiceClick('Report Lost ID')">
+                            <div class="service-icon"><i class="ph ph-warning-circle"></i></div>
+                            <h3>Report Lost ID</h3>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- 5. CHECK STATUS -->
+                <section id="check-status-section" class="card status-card">
+                    <div class="card-header">
+                        <h2>Check Status</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="status-desc">Enter your Application or ID Number to check verification status.</p>
+                        <div class="input-group">
+                            <input type="text" id="status-input" placeholder="Enter ID Number (e.g. 123456789012)">
+                            <button class="btn btn-primary" id="check-status-btn">Check Status</button>
+                        </div>
+
+                        <div id="status-result" class="status-result hidden">
+                            <div id="status-icon" class="status-icon"></div>
+                            <div class="status-info">
+                                <h3 id="status-text">Status</h3>
+                                <p id="status-message">Message</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- 7. ACTIVITY HISTORY -->
+        <section class="card history-card" id="history-section">
+            <div class="card-header">
+                <h2>Activity History</h2>
+            </div>
+            <div class="card-body" style="overflow-x: auto;">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Action</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-tbody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
             </div>
         </section>
-
-        <!-- 4. ABOUT PREVIEW -->
-        <section id="about" class="about-preview-section">
-            <div class="about-preview-container">
-                <div class="about-text">
-                    <h2 class="section-title" style="text-align: left;">About National Digital Identity</h2>
-                    <p>A National Digital Identity System provides every citizen with a secure and unique digital identity. It enables seamless access to government and private services while ensuring privacy, security, and transparency.</p>
-                    <button class="btn btn-primary" onclick="location.href='pages/about.html'">Read Full Mission</button>
-                </div>
-                <div class="about-image">
-                    <img src="assets/images/about.jpg" alt="About Digital Identity" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. WHY TRUST US -->
-        <section class="trust-section" style="background: white; padding: 4rem 2rem; border-radius: var(--radius-lg);">
-            <h2 class="section-title">Why Trust Us</h2>
-            <div class="trust-grid" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
-                <div class="trust-item">
-                    <img src="assets/icons/verify.png" alt="Security" width="60">
-                    <h3>State-of-the-Art Security</h3>
-                    <p>Advanced encryption for your data.</p>
-                </div>
-                <div class="trust-item">
-                    <img src="assets/icons/user.png" alt="Control" width="60">
-                    <h3>Full Data Control</h3>
-                    <p>You decide who sees your info.</p>
-                </div>
-                <div class="trust-item">
-                    <img src="assets/icons/location.png" alt="Trust" width="60">
-                    <h3>Trusted nationwide</h3>
-                    <p>Accepted by all major institutions.</p>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- 6. FOOTER -->
+    <!-- 10. FOOTER -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <strong>&copy; 2026 National Digital Identity System</strong>
-            </div>
+        <div class="footer-content">
+            <p>&copy; 2026 National Digital Identity System</p>
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms</a>
-                <a href="#">Help</a>
+                <a href="pages/help.html">Help</a>
                 <a href="#">Contact</a>
             </div>
         </div>
     </footer>
 
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Profile</h3>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="edit-name">
+            </div>
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text" id="edit-mobile">
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <textarea id="edit-address" rows="3"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancel-edit-btn"
+                    style="background:#64748b; color:white;">Cancel</button>
+                <button class="btn btn-primary" id="save-profile-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
