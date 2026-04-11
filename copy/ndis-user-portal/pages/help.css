@@ -1,0 +1,162 @@
+/* NDIS USER PORTAL - HELP STYLES */
+
+.help-search-container {
+    max-width: 500px;
+    margin: 2rem auto 0;
+    padding: 15px 25px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.help-search-icon {
+    font-size: 20px;
+    color: var(--primary-glow);
+}
+
+.help-search-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.quick-help-section {
+    margin-bottom: 3rem;
+}
+
+.quick-help-title {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.quick-help-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.faq-section {
+    margin-bottom: 3rem;
+}
+
+.faq-title {
+    margin-bottom: 1.5rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item-title {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-icon {
+    color: var(--primary-glow);
+}
+
+.faq-item-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.support-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.support-contact-card {
+    padding: 2rem;
+    text-align: center;
+}
+
+.support-card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.icon-blue { color: var(--primary-glow); }
+.icon-purple { color: var(--secondary-glow); }
+.icon-orange { color: var(--accent-glow); }
+
+.support-card-title {
+    margin-bottom: 10px;
+}
+
+.support-card-desc {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.btn-full-width {
+    width: 100%;
+}
+
+.btn-gradient-purple {
+    background: linear-gradient(135deg, var(--secondary-glow), #4a00e0);
+}
+
+.btn-gradient-orange {
+    background: linear-gradient(135deg, var(--accent-glow), #ff4e00);
+}
+
+.report-section-title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.report-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.report-form-group {
+    /* inherit general form group styling */
+}
+
+.report-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.report-select-option {
+    color: #000;
+}
+
+.report-submit-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.report-success-msg {
+    display: none;
+    text-align: center;
+    color: var(--status-verified);
+    margin-top: 10px;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+}

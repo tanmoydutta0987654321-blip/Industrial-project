@@ -153,40 +153,68 @@ function checkStatus() {
         return;
     }
 
-    // Checking logic based on requirements
-    // If ID = 123456789012 → Status = APPROVED
-    // If ID = 000000000000 → Status = REJECTED
-    // Else → Status = PENDING
+    // Show loading state
+    els.checkStatusBtn.disabled = true;
+    els.checkStatusBtn.innerHTML = '<i class="ph-bold ph-spinner spin"></i> Checking...';
+    
+    // Hide previous result
+    els.statusResult.classList.add('hidden');
 
-    let status, message, colorClass, iconClass;
+    setTimeout(() => {
+        // Checking logic based on requirements
+        let status, message, colorClass, iconClass;
 
-    if (id === '123456789012') {
-        status = 'APPROVED';
-        message = 'Your identity is verified';
-        colorClass = 'status-approved';
-        iconClass = 'ph-check-circle';
-    } else if (id === '000000000000') {
-        status = 'REJECTED';
-        message = 'Your request was rejected';
-        colorClass = 'status-rejected';
-        iconClass = 'ph-x-circle';
-    } else {
-        status = 'PENDING';
-        message = 'Under review';
-        colorClass = 'status-pending';
-        iconClass = 'ph-clock';
-    }
+        if (id === '123456789012') {
+            status = 'APPROVED';
+            message = 'Your identity is verified';
+            colorClass = 'status-approved';
+            iconClass = 'ph-check-circle';
+        } else if (id === '000000000000') {
+            status = 'REJECTED';
+            message = 'Your request was rejected';
+            colorClass = 'status-rejected';
+            iconClass = 'ph-x-circle';
+        } else {
+            status = 'PENDING';
+            message = 'Under review';
+            colorClass = 'status-pending';
+            iconClass = 'ph-clock';
+        }
 
-    // Update UI
-    els.statusResult.className = `status-result ${colorClass}`;
-    els.statusIcon.innerHTML = `<i class="ph-fill ${iconClass}"></i>`;
-    els.statusText.textContent = status;
-    els.statusMessage.textContent = message;
+        // Update UI
+        els.statusResult.className = `status-result glass fade-in`;
+        
+        // Add specific glow classes based on status
+        els.statusResult.classList.remove('status-card-verified', 'status-card-failed', 'status-card-pending');
+        
+        if (status === 'APPROVED') {
+            els.statusResult.classList.add('status-card-verified');
+            els.statusResult.style.borderColor = 'var(--status-verified)';
+            els.statusIcon.style.color = 'var(--status-verified)';
+        } else if (status === 'REJECTED') {
+            els.statusResult.classList.add('status-card-failed');
+            els.statusResult.style.borderColor = 'var(--status-failed)';
+            els.statusIcon.style.color = 'var(--status-failed)';
+        } else {
+            els.statusResult.classList.add('status-card-pending');
+            els.statusResult.style.borderColor = 'var(--status-pending)';
+            els.statusIcon.style.color = 'var(--status-pending)';
+        }
 
-    els.statusResult.classList.remove('hidden');
+        els.statusIcon.innerHTML = `<i class="ph-fill ${iconClass}" style="font-size: 40px;"></i>`;
+        els.statusText.textContent = status;
+        els.statusText.style.color = '#fff';
+        els.statusMessage.textContent = message;
 
-    showNotification(`Status checked: ${status}`, 'info');
-    addActivity(`Verification Check`, status);
+        els.statusResult.classList.remove('hidden');
+
+        showNotification(`Status checked: ${status}`, status === 'APPROVED' ? 'success' : (status === 'REJECTED' ? 'error' : 'info'));
+        addActivity(`Verification Check`, status);
+        
+        // Restore button state
+        els.checkStatusBtn.disabled = false;
+        els.checkStatusBtn.innerHTML = 'Check';
+    }, 1500);
 }
 
 // Show Notifications (Popup Messages)

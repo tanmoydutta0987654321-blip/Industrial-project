@@ -114,6 +114,13 @@ function updateLastResult(log) {
     // Update Badge
     lastStatusBadge.className = `status-badge ${log.status.toLowerCase()}`;
     lastStatusText.textContent = log.status;
+
+    // Add Glowing Effect to Card
+    const card = document.getElementById('last-result-card');
+    card.classList.remove('status-card-verified', 'status-card-failed', 'status-card-pending');
+    if (log.status === 'VERIFIED') card.classList.add('status-card-verified');
+    if (log.status === 'FAILED') card.classList.add('status-card-failed');
+    if (log.status === 'PENDING') card.classList.add('status-card-pending');
 }
 
 // Format input to add spaces automatically

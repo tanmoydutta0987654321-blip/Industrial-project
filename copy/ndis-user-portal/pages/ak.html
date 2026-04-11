@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Document Verification</title>
+    <link rel="stylesheet" href="ak.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <h1 class="logo">Profile Dashboard</h1>
+                <div class="nav-items">
+                    <span class="user-name">Welcome, Rajesh Kumar</span>
+                    <button class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Profile Section -->
+        <div class="profile-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="profile-card">
+                    <img src="https://via.placeholder.com/120" alt="User Profile" class="profile-image">
+                    <h2>Rajesh Kumar</h2>
+                    <p class="email">rajesh.kumar@email.com</p>
+                    <p class="phone">+91 98765 43210</p>
+                    <div class="profile-status">
+                        <span class="status-badge verified">Verified</span>
+                    </div>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Documents</span>
+                        <span class="stat-value">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Verified</span>
+                        <span class="stat-value">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Pending</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Personal Information Section -->
+                <section class="card">
+                    <div class="card-header">
+                        <h3>Personal Information</h3>
+                        <button class="edit-btn" onclick="toggleEdit('personal')">Edit</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Full Name</label>
+                                <span id="name-display">Rajesh Kumar</span>
+                                <input type="text" id="name-edit" class="edit-hidden" value="Rajesh Kumar">
+                            </div>
+                            <div class="info-item">
+                                <label>Date of Birth</label>
+                                <span id="dob-display">15-01-1990</span>
+                                <input type="date" id="dob-edit" class="edit-hidden" value="1990-01-15">
+                            </div>
+                            <div class="info-item">
+                                <label>Gender</label>
+                                <span id="gender-display">Male</span>
+                                <select id="gender-edit" class="edit-hidden">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="info-item">
+                                <label>Email</label>
+                                <span id="email-display">rajesh.kumar@email.com</span>
+                                <input type="email" id="email-edit" class="edit-hidden" value="rajesh.kumar@email.com">
+                            </div>
+                            <div class="info-item">
+                                <label>Phone</label>
+                                <span id="phone-display">+91 98765 43210</span>
+                                <input type="tel" id="phone-edit" class="edit-hidden" value="+91 98765 43210">
+                            </div>
+                            <div class="info-item">
+                                <label>Address</label>
+                                <span id="address-display">123 Main Street, Delhi, India - 110001</span>
+                                <input type="text" id="address-edit" class="edit-hidden" value="123 Main Street, Delhi, India - 110001">
+                            </div>
+                        </div>
+                        <div class="button-group edit-buttons edit-hidden">
+                            <button class="btn-save" onclick="saveChanges('personal')">Save</button>
+                            <button class="btn-cancel" onclick="toggleEdit('personal')">Cancel</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Aadhaar Section -->
+                <section class="card">
+                    <div class="card-header">
+                        <h3>Aadhaar Verification</h3>
+                        <div class="status-indicator verified">
+                            <span class="dot"></span> Verified
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Aadhaar Number</label>
+                                <span>XXXX XXXX 4567</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Registered Name</label>
+                                <span>Rajesh Kumar</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Date of Birth (Aadhaar)</label>
+                                <span>15-01-1990</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Gender (Aadhaar)</label>
+                                <span>Male</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Verification Status</label>
+                                <span class="badge success">Verified</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Verified On</label>
+                                <span>15-03-2024</span>
+                            </div>
+                        </div>
+                        <div class="document-preview">
+                            <h4>Document Preview</h4>
+                            <div class="preview-box">
+                                <img src="https://via.placeholder.com/300x200" alt="Aadhaar Preview">
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn-update" onclick="updateDocument('aadhaar')">Update Aadhaar</button>
+                            <button class="btn-download" onclick="downloadDocument('aadhaar')">Download</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Voter ID Section -->
+                <section class="card">
+                    <div class="card-header">
+                        <h3>Voter ID Verification</h3>
+                        <div class="status-indicator verified">
+                            <span class="dot"></span> Verified
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Voter ID Number</label>
+                                <span>DL01234567890</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Registered Name</label>
+                                <span>Rajesh Kumar</span>
+                            </div>
+                            <div class="info-item">
+                                <label>State</label>
+                                <span>Delhi</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Assembly Constituency</label>
+                                <span>New Delhi</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Verification Status</label>
+                                <span class="badge success">Verified</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Verified On</label>
+                                <span>20-03-2024</span>
+                            </div>
+                        </div>
+                        <div class="document-preview">
+                            <h4>Document Preview</h4>
+                            <div class="preview-box">
+                                <img src="https://via.placeholder.com/300x200" alt="Voter ID Preview">
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn-update" onclick="updateDocument('voter')">Update Voter ID</button>
+                            <button class="btn-download" onclick="downloadDocument('voter')">Download</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- KYC Update Section -->
+                <section class="card">
+                    <div class="card-header">
+                        <h3>KYC (Know Your Customer) Details</h3>
+                        <div class="status-indicator verified">
+                            <span class="dot"></span> Complete
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="kyc-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker completed"></div>
+                                <div class="timeline-content">
+                                    <h4>Level 1 - Basic KYC</h4>
+                                    <p>Mobile Number & Email Verification</p>
+                                    <span class="completion-date">✓ Completed on 01-03-2024</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker completed"></div>
+                                <div class="timeline-content">
+                                    <h4>Level 2 - Document Verification</h4>
+                                    <p>Aadhaar & PAN Verification</p>
+                                    <span class="completion-date">✓ Completed on 15-03-2024</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker completed"></div>
+                                <div class="timeline-content">
+                                    <h4>Level 3 - Full KYC</h4>
+                                    <p>Address & Income Verification</p>
+                                    <span class="completion-date">✓ Completed on 25-03-2024</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="kyc-details">
+                            <h4>Current KYC Status</h4>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>KYC Level</label>
+                                    <span class="badge premium">Level 3 - Complete</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Last Updated</label>
+                                    <span>25-03-2024</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Valid Till</label>
+                                    <span>25-03-2027</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Approval Status</label>
+                                    <span class="badge success">Approved</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn-update" onclick="updateDocument('kyc')">Update KYC</button>
+                            <button class="btn-download" onclick="downloadDocument('kyc')">Download Certificate</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Upload Section -->
+                <section class="card">
+                    <div class="card-header">
+                        <h3>Additional Documents</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">📄</div>
+                            <p>Drag and drop documents or click to upload</p>
+                            <input type="file" id="fileInput" multiple hidden>
+                            <button class="btn-upload" onclick="document.getElementById('fileInput').click()">Select Files</button>
+                        </div>
+                        <div class="documents-list">
+                            <h4>Uploaded Documents</h4>
+                            <div class="doc-item">
+                                <span>PAN_Certificate.pdf</span>
+                                <span class="doc-date">Uploaded: 10-03-2024</span>
+                                <button class="btn-remove">Remove</button>
+                            </div>
+                            <div class="doc-item">
+                                <span>Address_Proof.pdf</span>
+                                <span class="doc-date">Uploaded: 15-03-2024</span>
+                                <button class="btn-remove">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="ak.js"></script>
+</body>
+</html>

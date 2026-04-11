@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | National Digital Identity System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../theme.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="help.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="dark-mode">
+
+    <div class="glow-blob" style="top: 20%; right: 10%; background: var(--primary-glow);"></div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="ph-fill ph-shield-check" style="color: var(--primary-glow); font-size: 32px;"></i>
+                <span class="logo-text">Verifire Portal</span>
+            </div>
+            
+            <nav class="nav-links desktop-nav">
+                <a href="../index.html">Dashboard</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="help.html" class="active">Support</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="profile-menu">
+                    <div class="avatar">
+                        <i class="ph-fill ph-user"></i>
+                    </div>
+                </div>
+                <button class="icon-btn" id="hamburger-btn" style="color: #fff; background: none; border: none; font-size: 24px; cursor: pointer;">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <aside class="mobile-sidebar glass" id="mobile-sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text"><strong>Verifire</strong></div>
+            <button class="close-btn" id="close-sidebar-btn" style="background: none; border: none; color: #fff; font-size: 24px;">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="sidebar-links" style="display: flex; flex-direction: column; gap: 20px; margin-top: 40px;">
+            <a href="../index.html">Dashboard</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="help.html" class="active">Support</a>
+        </nav>
+    </aside>
+
+    <section class="hero fade-in">
+        <div class="hero-content">
+            <h1 class="text-gradient">Help Center</h1>
+            <p>Find answers, get support, and resolve your issues easily.</p>
+            <div class="search-box glass help-search-container">
+                <i class="ph ph-magnifying-glass help-search-icon"></i>
+                <input type="text" placeholder="Search your issue..." class="help-search-input">
+            </div>
+        </div>
+    </section>
+
+    <main class="dashboard-container">
+        
+        <div class="quick-help-section">
+            <h2 class="text-gradient quick-help-title">Quick Help</h2>
+            <div class="quick-help-buttons">
+                <button class="btn-outline-glow" onclick="quickHelpAction('Login Issues')">Login Issues</button>
+                <button class="btn-outline-glow" onclick="quickHelpAction('ID Verification Problems')">Verification Problems</button>
+                <button class="btn-outline-glow" onclick="quickHelpAction('Update Request Status')">Request Status</button>
+            </div>
+        </div>
+
+        <section class="glass-card card faq-section">
+            <h2 class="text-gradient faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h4 class="faq-item-title"><i class="ph-fill ph-question faq-icon"></i> How to create a Digital ID?</h4>
+                <p class="faq-item-desc">To create a Digital ID, visit the Home page and click on 'Register'. You will need to provide your full name, mobile number, and upload valid identity documents.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4 class="faq-item-title"><i class="ph-fill ph-question faq-icon"></i> How to update my profile?</h4>
+                <p class="faq-item-desc">You can update your profile by navigating to the Dashboard, clicking on the 'Edit Profile' button in the Profile Card.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4 class="faq-item-title"><i class="ph-fill ph-question faq-icon"></i> How to check verification status?</h4>
+                <p class="faq-item-desc">Use the 'Check Verification Status' tool on the Dashboard or Services page.</p>
+            </div>
+        </section>
+
+        <div class="support-cards-grid">
+            <div class="glass-card support-contact-card">
+                <i class="ph-fill ph-envelope-simple support-card-icon icon-blue"></i>
+                <h3 class="support-card-title">Contact Support</h3>
+                <p class="support-card-desc">support@ndis.gov</p>
+                <button class="btn-glow btn-full-width" onclick="alert('Opening email client...')">Send Email</button>
+            </div>
+            <div class="glass-card support-contact-card">
+                <i class="ph-fill ph-phone support-card-icon icon-purple"></i>
+                <h3 class="support-card-title">Call Support</h3>
+                <p class="support-card-desc">+91 12345 67890</p>
+                <button class="btn-glow btn-full-width btn-gradient-purple" onclick="alert('Dialing support number...')">Call Now</button>
+            </div>
+            <div class="glass-card support-contact-card">
+                <i class="ph-fill ph-map-pin support-card-icon icon-orange"></i>
+                <h3 class="support-card-title">Visit Center</h3>
+                <p class="support-card-desc">Find nearest enrollment center</p>
+                <button class="btn-glow btn-full-width btn-gradient-orange" onclick="alert('Searching for enrollment centers near you...')">Find Location</button>
+            </div>
+        </div>
+
+        <section class="glass-card card">
+            <h2 class="text-gradient report-section-title">Report an Issue</h2>
+            <form id="report-form" class="report-form">
+                <div class="form-group report-form-group">
+                    <label class="report-label">Full Name</label>
+                    <input type="text" id="report-name" class="glass-input" required>
+                </div>
+                <div class="form-group report-form-group">
+                    <label class="report-label">Email Address</label>
+                    <input type="email" id="report-email" class="glass-input" required>
+                </div>
+                <div class="form-group report-form-group">
+                    <label class="report-label">Issue Type</label>
+                    <select id="issue-type" class="glass-input" required>
+                        <option value="login" class="report-select-option">Login Problems</option>
+                        <option value="verification" class="report-select-option">Verification Issues</option>
+                        <option value="other" class="report-select-option">Other</option>
+                    </select>
+                </div>
+                <div class="form-group report-form-group">
+                    <label class="report-label">Message</label>
+                    <textarea id="report-message" class="glass-input" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-glow report-submit-btn">Submit Report</button>
+                <div id="report-success" class="form-success report-success-msg">
+                    <h3>Report Submitted!</h3>
+                    <p>Thank you for contacting us.</p>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <p>&copy; 2026 National Digital Identity System</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="help.html">Help</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        if (hamburgerBtn) {
+            hamburgerBtn.onclick = () => {
+                mobileSidebar.classList.add('active');
+                overlay.classList.add('active');
+            };
+        }
+        if (closeSidebarBtn) {
+            closeSidebarBtn.onclick = () => {
+                mobileSidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            };
+        }
+        if (overlay) {
+            overlay.onclick = () => {
+                mobileSidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            };
+        }
+        
+        const reportForm = document.getElementById('report-form');
+        if(reportForm) {
+            reportForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                document.getElementById('report-success').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('report-success').style.display = 'none';
+                    reportForm.reset();
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
