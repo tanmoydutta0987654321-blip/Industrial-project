@@ -1,0 +1,121 @@
+/* NDIS USER PORTAL - DOCUMENTS STYLES */
+
+.docs-header-actions {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.doc-search-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    flex: 1;
+    min-width: 250px;
+    gap: 10px;
+    border-radius: 12px;
+}
+
+.doc-search-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    width: 100%;
+}
+
+.doc-filter-select {
+    width: auto;
+    min-width: 200px;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.doc-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.doc-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doc-icon-blue {
+    background: rgba(0, 242, 255, 0.1);
+}
+
+.doc-icon-yellow {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.doc-card-title {
+    margin-bottom: 5px;
+}
+
+.doc-card-desc {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.doc-card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.docs-security-banner {
+    margin-top: 2rem;
+    background: rgba(0, 242, 255, 0.05);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Document View Modal */
+.doc-modal-preview {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 3rem;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.doc-modal-info {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.doc-modal-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.doc-modal-label {
+    color: var(--text-muted);
+    font-size: 14px;
+}

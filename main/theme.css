@@ -1,0 +1,188 @@
+/* THEME.CSS - Global Design System */
+:root {
+  /* Colors - Futuristic Fintech Palette */
+  --bg-deep: #050b18;
+  --bg-dark: #0a1128;
+  --primary-glow: #00f2ff;
+  --secondary-glow: #7000ff;
+  --accent-glow: #ffae00;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(12px);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  
+  /* Status Colors */
+  --status-verified: #10b981;
+  --status-failed: #ef4444;
+  --status-pending: #f59e0b;
+  
+  /* Gradints */
+  --gradient-main: linear-gradient(135deg, var(--bg-deep) 0%, #0c1425 100%);
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.15), transparent 70%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(112, 0, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 174, 0, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+}
+
+/* Typography Enhancements */
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff, var(--primary-glow));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-glow {
+  background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+  color: #000;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
+}
+
+.btn-outline-glow {
+  background: transparent;
+  color: var(--primary-glow);
+  border: 1px solid var(--primary-glow);
+  padding: 12px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-outline-glow:hover {
+  background: rgba(0, 242, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+/* Forms */
+.glass-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 14px 20px;
+  color: #fff;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Glow Elements */
+.glow-blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--primary-glow);
+  filter: blur(150px);
+  opacity: 0.2;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Verification System Glowing Cards */
+.status-card-verified { 
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4) !important; 
+  border-color: var(--status-verified) !important; 
+  transition: all 0.5s ease;
+}
+
+.status-card-failed { 
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.4) !important; 
+  border-color: var(--status-failed) !important; 
+  transition: all 0.5s ease;
+}
+
+.status-card-pending { 
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.4) !important; 
+  border-color: var(--status-pending) !important; 
+  transition: all 0.5s ease;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>National Digital Identity System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="landing.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="dark-mode">
+
+  <div class="glow-blob" style="top: -100px; right: -100px; background: var(--secondary-glow);"></div>
+  <div class="glow-blob" style="bottom: 10%; left: -50px; background: var(--primary-glow);"></div>
+
+  <nav class="glass site-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="ndis-user-portal/assets/logo.jpeg" alt="Logo"
+            style="width: 40px; height: 40px; border-radius: 50%;">
+        </div>
+        <div class="logo-text">
+          <strong>National Digital Identity System</strong>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#help">Help Center</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="btn-link" id="login-btn-nav">Login</button>
+        <button class="btn-signup" id="signup-btn-nav">Sign Up</button>
+        <div class="mobile-toggle" id="mobile-toggle">
+          <i class="ph ph-list"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-sidebar glass" id="mobile-sidebar">
+    <div class="sidebar-header">
+      <div class="logo-text"><strong>NDIS</strong></div>
+      <i class="ph ph-x" id="close-sidebar"></i>
+    </div>
+    <ul class="sidebar-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#help">Help Center</a></li>
+      <li class="sidebar-auth">
+        <button class="btn-link" id="login-btn-mobile">Login</button>
+        <button class="btn-signup" id="signup-btn-mobile">Sign Up</button>
+      </li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero full-height">
+      <div class="hero-content fade-in">
+        <h1 class="text-gradient">Secure Access to Your<br><span class="highlight">National Identity Profile.</span>
+        </h1>
+        <p>Register your digital ID, connect to civic services, and manage your credentials seamlessly with
+          state-of-the-art security.</p>
+        <div class="hero-btns">
+          <button class="btn-glow" id="hero-get-started">Get Started</button>
+          <button class="btn-outline-glow" id="hero-login">Login</button>
+          <button class="btn-outline-glow blue-gradient" id="hero-signup">Sign Up</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-card glass">
+          <i class="ph-fill ph-fingerprint"></i>
+          <div class="pulse"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY SERVICES -->
+    <section class="services-section" id="services">
+      <div class="section-header">
+        <h2 class="text-gradient">Explore Services</h2>
+        <p>Everything you need to manage your digital life</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="ph ph-file-text"></i></div>
+          <div class="service-info">
+            <span class="service-label">Manage Documents</span>
+            <span class="service-sublabel">Personal IDs & Certs</span>
+          </div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="ph ph-user-circle-plus"></i></div>
+          <div class="service-info">
+            <span class="service-label">Update Profile</span>
+            <span class="service-sublabel">Address & Status</span>
+          </div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="ph ph-identification-card"></i></div>
+          <div class="service-info">
+            <span class="service-label">Issue Digital ID</span>
+            <span class="service-sublabel">Instant Credentials</span>
+          </div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="ph ph-download-simple"></i></div>
+          <div class="service-info">
+            <span class="service-label">Download Card</span>
+            <span class="service-sublabel">Offline ID Copy</span>
+          </div>
+        </div>
+        <div class="service-card glass-card" onclick="window.location.href='For-Admin-verifire/index.html'">
+          <div class="service-icon"><i class="ph ph-shield-check"></i></div>
+          <div class="service-info">
+            <span class="service-label">Verify Status</span>
+            <span class="service-sublabel">Verifier Portal</span>
+          </div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="ph ph-warning"></i></div>
+          <div class="service-info">
+            <span class="service-label">Report Loss</span>
+            <span class="service-sublabel">Stolen/Lost Reports</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </section>
+  </main>
+
+
+  <footer class="glass footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <strong>Verifire</strong>
+        <p>&copy; 2026 National Digital Identity System</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Contact Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation & Mobile Menu
+    const toggle = document.getElementById('mobile-toggle');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const close = document.getElementById('close-sidebar');
+
+    toggle.addEventListener('click', () => sidebar.classList.add('active'));
+    close.addEventListener('click', () => sidebar.classList.remove('active'));
+
+    // Modals functionality removed - Buttons are now static
+
+    // Get Started Scroll
+    document.getElementById('hero-get-started').addEventListener('click', () => {
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Scroll Animations
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.glass-card, .section-header').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
