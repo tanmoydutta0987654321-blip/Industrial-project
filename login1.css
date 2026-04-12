@@ -1,0 +1,200 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* border: 2px solid black; */
+    height: 100vh;
+    width: 100%;
+}
+
+.pic {
+    height: 60px;
+    width: 60px;
+    background-image: url(../googlelogo1.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    left: 20px;
+    top: 5px;
+}
+
+.left {
+    height: 100vh;
+    width: 50%;
+}
+
+.login {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 210px;
+    left: 330px;
+}
+
+.sub {
+    text-align: center;
+    position: relative;
+    top: 210px;
+    left: 205px;
+    font-family: sans-serif;
+
+}
+
+input {
+    position: relative;
+    top: 230px;
+    left: 250px;
+    height: 40px;
+    width: 250px;
+    border-radius: 10px;
+    padding-left: 10px;
+    /* text-align: center; */
+    border: none;
+    background-color: beige;
+    border: 1px solid black;
+    /* text-align:center; */
+}
+
+input::placeholder {
+    padding: 15px;
+}
+
+input:hover {
+    box-shadow: 0 6px 18px rgba(224, 123, 46, 0.12);
+    transform: translateY(-4px);
+}
+
+.submit {
+    position: relative;
+    top: 240px;
+    left: 270px;
+    height: 40px;
+    width: 100px;
+    border-radius: 15px 0px 15px 0px;
+    background-color: green;
+    border: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.submit a {
+    text-decoration: none;
+    color: white;
+}
+
+.submit:hover {
+    box-shadow: 0 6px 18px rgba(224, 123, 46, 0.12);
+    transform: translateY(-4px);
+}
+
+.down {
+    position: relative;
+    top: 240px;
+    left: 316px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.down1 {
+    position: relative;
+    top: 221px;
+    left: 365px;
+    font-family: sans-serif;
+}
+
+.pic1 {
+    height: 40px;
+    width: 250px;
+    border: 1px solid lightskyblue;
+    border-radius: 8px;
+    position: relative;
+    top: 220px;
+    left: 250px;
+}
+
+.pic1:hover {
+    box-shadow: 0 6px 18px rgba(224, 123, 46, 0.12);
+    transform: translateY(-4px);
+}
+
+.down3 {
+    position: relative;
+    bottom: 50px;
+    left: 70px;
+    font-family: sans-serif;
+}
+
+.down3 a {
+    text-decoration: none;
+    color: black;
+}
+
+.down4 {
+    position: relative;
+    bottom: 70px;
+    left: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.down4 a {
+    text-decoration: none;
+    color: black;
+}
+
+********************************************************** .innerimage {
+    height: 400px;
+    width: 350px;
+    border: 1px solid orange;
+    border-radius: 20px;
+    position: relative;
+    top: 200px;
+    left: 190px;
+    background-color: rgba(255, 160, 122, 0.5);
+}
+
+.img1 {
+    height: 400px;
+    width: 600px;
+    background-image: url(../women.png);
+    background-repeat: no-repeat;
+    background-size: 600px 400px;
+    position: relative;
+    bottom: 201px;
+    left: 10px;
+}
+
+.right {
+    background: linear-gradient(rgba(106, 8, 8, 0), rgb(255, 119, 0));
+}
+
+.img {
+    height: 100vh;
+    width: 50%;
+    background-image: url(../Rectangle4.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.righttext {
+    font-family: sans-serif;
+    color: black;
+    position: relative;
+    top: 25px;
+    left: 30px;
+    line-height: 2;
+}
+
+.innerimage {
+    height: 400px;
+    width: 350px;
+    border: 1px solid orange;
+    border-radius: 20px;
+    position: relative;
+    top: 200px;
+    left: 190px;
+    background-color: rgba(255, 160, 122, 0.5);
+}
