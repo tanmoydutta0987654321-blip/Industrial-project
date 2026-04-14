@@ -1,7 +1,7 @@
 # Industrial-project
-This project is for Learning Hub
+This project is for Learning Hub <br>
 📁 Project Structure
-Bash
+Bash <br>
 National-Digital-Identity-System/
 │
 ├── index.html              # Landing / Home Page
